@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roullete</title>
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="./js/app.js" defer></script>
+</head>
+
+<body>
+
+  <div class="failed-modal action-modal">
+    <div class="failed-modal__body action-modal__body">
+      <img src="./img/modal/failed.png" alt="failed icon">
+      <h3 class="failed-modal__title">
+        The operation cannot be performed!
+      </h3>
+      <button class="action-modal_close">&#x2715</button>
+    </div>
+  </div>
+
+  <div class="succes-modal action-modal">
+    <div class="succes-modal__body action-modal__body">
+      <img src="./img/modal/succes.png" alt="failed icon">
+      <h3 class="failed-modal__title">
+        The operation was completed successfully!
+      </h3>
+      <button class="action-modal_close">&#x2715</button>
+    </div>
+  </div>
+
+  <div class="withdraw-modal modal">
+    <div class="withdraw-modal__body modal__body">
+      <h2 class="withdraw-modal__title">
+        Withdrawal of funds
+      </h2>
+      <div class="withdraw-modal__wrapper">
+        <button id="cards" class="withdraw-modal__item withdraw-modal__item--cards">
+          <p class="withdraw-modal__item-title">Cards</p>
+          <span>Minimum withdrawal: 5$</span>
+        </button>
+        <button id="crypto" class="withdraw-modal__item withdraw-modal__item--crypto">
+          <p class="withdraw-modal__item-title">Ctypto</p>
+          <span>Minimum withdrawal: 5$</span>
+        </button>
+      </div>
+
+      <form class="withdraw-modal__item-form withdraw-modal__item--cards-form" data-form="cards">
+        <label class="withdraw-modal__item-label">
+          Enter card number
+          <input type="text" placeholder="0000 0000 0000 0000" required>
+        </label>
+
+        <button class="withdraw-modal__item-submit">Withdraw</button>
+      </form>
+
+      <form class="withdraw-modal__item-form withdraw-modal__item--crypto-form" data-form="crypto">
+        <label class="withdraw-modal__item-label">
+          Wallet address
+          <input type="text" placeholder="Wallet address" required>
+        </label>
+
+        <button class="withdraw-modal__item-submit">Withdraw</button>
+      </form>
+
+      <button class="close-modal">&#x2715</button>
+    </div>
+  </div>
+
+  <div class="notification-modal modal">
+    <div class="notification-modal__body modal__body">
+      <ul class="notification-modal__list">
+        <li class="notification-modal__item">
+          <span>Deposit</span>
+          <p>Your balance deposit 4.2$</p>
+        </li>
+        <li class="notification-modal__item">
+          <span>Deposit</span>
+          <p>Your balance deposit 4.2$</p>
+        </li>
+        <li class="notification-modal__item">
+          <span>Deposit</span>
+          <p>Your balance deposit 4.2$</p>
+        </li>
+        <li class="notification-modal__item">
+          <span>Deposit</span>
+          <p>Your balance deposit 4.2$</p>
+        </li>
+        <li class="notification-modal__item">
+          <span>Deposit</span>
+          <p>Your balance deposit 4.2$</p>
+        </li>
+        <li class="notification-modal__item">
+          <span>Deposit</span>
+          <p>Your balance deposit 4.2$</p>
+        </li>
+        <li class="notification-modal__item">
+          <span>Deposit</span>
+          <p>Your balance deposit 4.2$</p>
+        </li>
+        <li class="notification-modal__item">
+          <span>Deposit</span>
+          <p>Your balance deposit 4.2$</p>
+        </li>
+        <li class="notification-modal__item">
+          <span>Deposit</span>
+          <p>Your balance deposit 4.2$</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="deposit-modal modal">
+    <div class="deposit-modal__body modal__body">
+      <h2 class="deposit-modal__title">
+        Deposit
+      </h2>
+      <ul class="deposit-modal__list">
+        <li class="deposit-modal__item deposit-modal__item--active">
+          <button class="deposit-modal__btn">
+            All
+          </button>
+        </li>
+        <li class="deposit-modal__item">
+          <button class="deposit-modal__btn">
+            Bancks
+          </button>
+        </li>
+        <li class="deposit-modal__item">
+          <button class="deposit-modal__btn">
+            Skins
+          </button>
+        </li>
+        <li class="deposit-modal__item">
+          <button class="deposit-modal__btn">
+            Crypto
+          </button>
+        </li>
+      </ul>
+
+      <ul class="deposit-modal__ways">
+        <li class="deposit-modal__way">
+          <button class="deposit-modal__way-btn">
+            <img src="./img/deposit/visa.png" alt="visa logo">
+          </button>
+          <span>#1</span>
+        </li>
+        <li class="deposit-modal__way deposit-modal__way-active">
+          <button class="deposit-modal__way-btn">
+            <img src="./img/deposit/visa.png" alt="visa logo">
+          </button>
+          <span>#2</span>
+        </li>
+        <li class="deposit-modal__way">
+          <button class="deposit-modal__way-btn">
+            <img src="./img/deposit/visa.png" alt="visa logo">
+          </button>
+          <span>#3</span>
+        </li>
+        <li class="deposit-modal__way">
+          <button class="deposit-modal__way-btn">
+            <img src="./img/deposit/visa.png" alt="visa logo">
+          </button>
+          <span>#4</span>
+        </li>
+        <li class="deposit-modal__way">
+          <button class="deposit-modal__way-btn">
+            <img src="./img/deposit/visa.png" alt="visa logo">
+          </button>
+          <span>#5</span>
+        </li>
+      </ul>
+
+      <form class="deposit-modal__form">
+        <div class="deposit-modal__form-wrapper">
+          <label>
+            <input type="text" class="deposit-modal__form-input" id="rub" value="0">
+            <span>RUB</span>
+          </label>
+          <label>
+            <input type="text" class="deposit-modal__form-input" id="usd" value="0">
+            <span>USD</span>
+          </label>
+        </div>
+        <button class="deposit-modal__form-subimt">Deposit</button>
+      </form>
+
+      <button class="close-modal">&#x2715</button>
+    </div>
+  </div>
+
+  <header class="header">
+    <nav class="header__nav">
+
+      <ul class="header__action-list">
+        <li class="header__action-item">
+          <a class="header__logo" href="#!">
+            <img class="header__logo-img" src="./img/header/logo.png" alt="header logo">
+          </a>
+        </li>
+        <li class="header__action-item">
+          <a class="header__action-link header__action-social" href="#!">
+            <img src="./img/header/discord.png" alt="discord logo">
+          </a>
+        </li>
+        <li class="header__action-item">
+          <a class="header__action-link header__action-social" href="#!">
+            <img src="./img/header/telegram.png" alt="telegram logo">
+          </a>
+        </li>
+        <li class="header__action-item header__action-item--additionally">
+          <a class="header__action-link" href="#!">
+            <img class="header__action-additionally-img" src="./img/header/bonuses.png" alt="bonuses icon">
+            <span>Bonuses</span>
+          </a>
+        </li>
+        <li class="header__action-item header__action-item--additionally">
+          <a class="header__action-link" href="#!">
+            <img class="header__action-additionally-img" src="./img/header/support.png" alt="help icon">
+            <span>Help</span>
+          </a>
+        </li>
+      </ul>
+
+      <ul class="header__user-list">
+        <li class="header__user-item">
+          <div class="header__user-item-wallet">
+            <img src="./img/header/wallet.png" alt="wallet icon">
+            <span>0.00$</span>
+          </div>
+        </li>
+        <li class="header__user-item">
+          <a class="header__user-avatar-link" href="#!">
+            <img class="header__user-avatar-img" src="./img/header/avatar.jpg" alt="user avatar">
+          </a>
+        </li>
+        <li class="header__user-item">
+          <button class="header__user-deposit-btn">
+            <img class="header__user-plus-icon" src="./img/header/plus.png" alt="deposit icon">
+            <span>Deposit</span>
+          </button>
+        </li>
+        <li class="header__user-item">
+          <button class="header__user-item-btn" id="notofication-btn">
+            <img src="./img/header//notification.png" class="header__user-notifications-icon" alt="notifications icon">
+          </button>
+        </li>
+        <li class="header__user-item">
+          <button class="header__user-item-btn">
+            <img src="./img/header/settings.png" class="header__user-settings-icon" alt="settings icon">
+          </button>
+        </li>
+      </ul>
+
+    </nav>
+  </header>
+
+  <div class="select-modal modal">
+    <div class="select-modal__body modal__body">
+      <h2 class="select-modal-title">
+        Select the amount
+      </h2>
+
+      <div class="select-modal__selected">
+        <label class="select-modal__label">
+          <input type="text" class="select-modal__amount" placeholder="0.20$">
+          Min value - 0.2$
+        </label>
+        <div class="select-modal__action">
+          <button class="select-modal__action-btn">&#8593;</button>
+          <button class="select-modal__action-btn">&#8595;</button>
+        </div>
+      </div>
+
+      <button class="select-modal__submit">Select</button>
+      <button class="select-modal__close close-modal">&#x2715</button>
+
+    </div>
+  </div>
+
+  <main class="main">
+    <div class="roullete-field">
+
+      <!-- <audio src="./roulettesound.mp3"></audio> -->
+
+      <div class="container">
+        <ul class="roullete-field__games">
+          <li class="roullete-field__games-item roullete-field__games-item--notwork">
+            <a class="roullete-field__games-link" href="#!">
+              <p>Double</p>
+              <span>0.00$</span>
+            </a>
+          </li>
+          <li class="roullete-field__games-item roullete-field__games-item--active" id="double">
+            <a class="roullete-field__games-link" href="#!">
+              <p>Double</p>
+              <span id="double-amount">0.00$</span>
+            </a>
+          </li>
+          <li class="roullete-field__games-item roullete-field__games-item--notwork">
+            <a class="roullete-field__games-link" href="#!">
+              <p>Double</p>
+              <span>0.00$</span>
+            </a>
+          </li>
+          <li class="roullete-field__games-item roullete-field__games-item--notwork">
+            <a class="roullete-field__games-link" href="#!">
+              <p>Double</p>
+              <span>0.00$</span>
+            </a>
+          </li>
+          <li class="roullete-field__games-item roullete-field__games-item--notwork">
+            <a class="roullete-field__games-link" href="#!">
+              <p>Double</p>
+              <span>0.00$</span>
+            </a>
+          </li>
+          <li class="roullete-field__games-item roullete-field__games-item--notwork">
+            <a class="roullete-field__games-link" href="#!">
+              <p>Double</p>
+              <span>0.00$</span>
+            </a>
+          </li>
+          <li class="roullete-field__games-item roullete-field__games-item--notwork">
+            <a class="roullete-field__games-link" href="#!">
+              <p>Double</p>
+              <span>0.00$</span>
+            </a>
+          </li>
+        </ul>
+
+        <div class="roullete-field__game">
+          <div class="roullete-field__info">
+            <div class="roullete-field__spin">
+
+              <div class="roullete-field__wincolor-field">
+
+                <div class="roullete-field__wincolor--blue roullete-field__wincolor">
+                  <span>Blue win</span>
+                </div>
+
+                <div class="roullete-field__wincolor--green roullete-field__wincolor">
+                  <span>Green win</span>
+                </div>
+
+                <div class="roullete-field__wincolor--yellow roullete-field__wincolor">
+                  <span>Yellow win</span>
+                </div>
+              </div>
+
+              <div class="roullete-field__spin-row">
+
+                <div class="roullete-field__spin-item roullete-field__spin-item--blue"></div>
+                <div class="roullete-field__spin-item roullete-field__spin-item--green"></div>
+                <div class="roullete-field__spin-item roullete-field__spin-item--blue"></div>
+                <div class="roullete-field__spin-item roullete-field__spin-item--green"></div>
+                <div class="roullete-field__spin-item roullete-field__spin-item--blue"></div>
+                <div class="roullete-field__spin-item roullete-field__spin-item--green"></div>
+                <div class="roullete-field__spin-item roullete-field__spin-item--yellow"></div>
+
+                <div class="roullete-field__spin-item roullete-field__spin-item--green"></div>
+                <div class="roullete-field__spin-item roullete-field__spin-item--blue"></div>
+                <div class="roullete-field__spin-item roullete-field__spin-item--green"></div>
+                <div class="roullete-field__spin-item roullete-field__spin-item--blue"></div>
+                <div class="roullete-field__spin-item roullete-field__spin-item--green"></div>
+                <div class="roullete-field__spin-item roullete-field__spin-item--blue"></div>
+                <div class="roullete-field__spin-item roullete-field__spin-item--green"></div>
+
+              </div>
+
+              <div class="roullete-field__spin-row">
+
+                <div class="roullete-field__spin-item roullete-field__spin-item--blue"></div>
+                <div class="roullete-field__spin-item roullete-field__spin-item--green"></div>
+                <div class="roullete-field__spin-item roullete-field__spin-item--blue"></div>
+                <div class="roullete-field__spin-item roullete-field__spin-item--green"></div>
+                <div class="roullete-field__spin-item roullete-field__spin-item--blue"></div>
+                <div class="roullete-field__spin-item roullete-field__spin-item--green"></div>
+                <div class="roullete-field__spin-item roullete-field__spin-item--yellow"></div>
+
+                <div class="roullete-field__spin-item roullete-field__spin-item--green"></div>
+                <div class="roullete-field__spin-item roullete-field__spin-item--blue"></div>
+                <div class="roullete-field__spin-item roullete-field__spin-item--green"></div>
+                <div class="roullete-field__spin-item roullete-field__spin-item--blue"></div>
+                <div class="roullete-field__spin-item roullete-field__spin-item--green"></div>
+                <div class="roullete-field__spin-item roullete-field__spin-item--blue"></div>
+                <div class="roullete-field__spin-item roullete-field__spin-item--green"></div>
+
+              </div>
+
+              <div class="roullete-field__spin-row">
+
+                <div class="roullete-field__spin-item roullete-field__spin-item--blue"></div>
+                <div class="roullete-field__spin-item roullete-field__spin-item--green"></div>
+                <div class="roullete-field__spin-item roullete-field__spin-item--blue"></div>
+                <div class="roullete-field__spin-item roullete-field__spin-item--green"></div>
+                <div class="roullete-field__spin-item roullete-field__spin-item--blue"></div>
+                <div class="roullete-field__spin-item roullete-field__spin-item--green"></div>
+                <div class="roullete-field__spin-item roullete-field__spin-item--yellow"></div>
+
+                <div class="roullete-field__spin-item roullete-field__spin-item--green"></div>
+                <div class="roullete-field__spin-item roullete-field__spin-item--blue"></div>
+                <div class="roullete-field__spin-item roullete-field__spin-item--green"></div>
+                <div class="roullete-field__spin-item roullete-field__spin-item--blue"></div>
+                <div class="roullete-field__spin-item roullete-field__spin-item--green"></div>
+                <div class="roullete-field__spin-item roullete-field__spin-item--blue"></div>
+                <div class="roullete-field__spin-item roullete-field__spin-item--green"></div>
+
+              </div>
+
+              <div class="roullete-field__spin-row">
+
+                <div class="roullete-field__spin-item roullete-field__spin-item--blue"></div>
+                <div class="roullete-field__spin-item roullete-field__spin-item--green"></div>
+                <div class="roullete-field__spin-item roullete-field__spin-item--blue"></div>
+                <div class="roullete-field__spin-item roullete-field__spin-item--green"></div>
+                <div class="roullete-field__spin-item roullete-field__spin-item--blue"></div>
+                <div class="roullete-field__spin-item roullete-field__spin-item--green"></div>
+                <div class="roullete-field__spin-item roullete-field__spin-item--yellow"></div>
+
+                <div class="roullete-field__spin-item roullete-field__spin-item--green"></div>
+                <div class="roullete-field__spin-item roullete-field__spin-item--blue"></div>
+                <div class="roullete-field__spin-item roullete-field__spin-item--green"></div>
+                <div class="roullete-field__spin-item roullete-field__spin-item--blue"></div>
+                <div class="roullete-field__spin-item roullete-field__spin-item--green"></div>
+                <div class="roullete-field__spin-item roullete-field__spin-item--blue"></div>
+                <div class="roullete-field__spin-item roullete-field__spin-item--green"></div>
+
+              </div>
+
+              <div class="roullete-field__spin-row">
+
+                <div class="roullete-field__spin-item roullete-field__spin-item--blue"></div>
+                <div class="roullete-field__spin-item roullete-field__spin-item--green"></div>
+                <div class="roullete-field__spin-item roullete-field__spin-item--blue"></div>
+                <div class="roullete-field__spin-item roullete-field__spin-item--green"></div>
+                <div class="roullete-field__spin-item roullete-field__spin-item--blue"></div>
+                <div class="roullete-field__spin-item roullete-field__spin-item--green"></div>
+                <div class="roullete-field__spin-item roullete-field__spin-item--yellow"></div>
+
+                <div class="roullete-field__spin-item roullete-field__spin-item--green"></div>
+                <div class="roullete-field__spin-item roullete-field__spin-item--blue"></div>
+                <div class="roullete-field__spin-item roullete-field__spin-item--green"></div>
+                <div class="roullete-field__spin-item roullete-field__spin-item--blue"></div>
+                <div class="roullete-field__spin-item roullete-field__spin-item--green"></div>
+                <div class="roullete-field__spin-item roullete-field__spin-item--blue"></div>
+                <div class="roullete-field__spin-item roullete-field__spin-item--green"></div>
+
+              </div>
+
+            </div>
+
+            <div class="counter-last-bets">
+              <div class="counter-last-bet-timer">
+                <span class="counter-last-bet-timer--sec">00</span> :
+                <span class="counter-last-bet-timer--millisec">0000</span>
+              </div>
+              <div class="counter-last-bet--info">Last 50</div>
+              <div class="counter-last-bet counter-last-bet--yellow">0</div>
+              <div class="counter-last-bet counter-last-bet--blue">0</div>
+              <div class="counter-last-bet counter-last-bet--green">0</div>
+            </div>
+
+            <div class="last-bets-list">
+              <!-- <div class="last-bets-list__item last-bets-list__item--blue"></div> -->
+            </div>
+
+          </div>
+          <div class="roullete-field__action">
+            <h3 class="roullete-field__action-title">Action</h3>
+            <div class="roullete-field__action-wrapper">
+              <div class="roullete-field__action-box">
+                <div class="roullete-field__action-balance">
+                  <p>0.00$</p>
+                  <span>Balance</span>
+                </div>
+                <button class="roullete-field__action-btn" id="select-btn">
+                  Select
+                </button>
+              </div>
+              <div class="roullete-field__action-box">
+                <div class="roullete-field__action-select">
+                  <p>0.00$</p>
+                  <span>Selected</span>
+                </div>
+                <button class="roullete-field__action-btn" id="withdraw-btn">
+                  Withdraw
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="roullete-field__plyers">
+          <h2 class="roullete-field__players-title">
+            Player bets
+          </h2>
+
+          <div class="roullete-field__plyers-wrapper">
+            <div class="roullete-field__plyers-column roullete-field__plyers-column--blue">
+              <div class="roullete-field__plyers-column-header">
+                <div class="roullete-field__plyers-win">
+                  <p>2x</p>
+                  <span>0.00$</span>
+                </div>
+                <button class="roullete-field__plyers-btn" data-color="blue">Join</button>
+                <div class="roullete-field__plyers-count">
+                  <img src="./img/roulette-field/person.png" alt="person icon">
+                  <span>0</span>
+                </div>
+              </div>
+              <div class="roullete-field__plyers-column-body">
+              </div>
+            </div>
+            <div class="roullete-field__plyers-column roullete-field__plyers-column--green">
+              <div class="roullete-field__plyers-column-header">
+                <div class="roullete-field__plyers-win">
+                  <p>2x</p>
+                  <span>0.00$</span>
+                </div>
+                <button class="roullete-field__plyers-btn" data-color="green">Join</button>
+                <div class="roullete-field__plyers-count">
+                  <img src="./img/roulette-field/person.png" alt="person icon">
+                  <span>0</span>
+                </div>
+              </div>
+              <div class="roullete-field__plyers-column-body">
+              </div>
+            </div>
+            <div class="roullete-field__plyers-column roullete-field__plyers-column--yellow">
+              <div class="roullete-field__plyers-column-header">
+                <div class="roullete-field__plyers-win">
+                  <p>14x</p>
+                  <span>0.00$</span>
+                </div>
+                <button class="roullete-field__plyers-btn" data-color="yellow">Join</button>
+                <div class="roullete-field__plyers-count">
+                  <img src="./img/roulette-field/person.png" alt="person icon">
+                  <span>0</span>
+                </div>
+              </div>
+              <div class="roullete-field__plyers-column-body">
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+</body>
+
+</html>
